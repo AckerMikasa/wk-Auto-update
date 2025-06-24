@@ -138,6 +138,8 @@ jobs:
           # 配置 Git 用户名和邮箱，以便 GitHub Actions 可以提交代码
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{  secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git checkout main
           # 添加 _worker.js 和 version.txt 到 Git 暂存区
           git add _worker.js version.txt
           # 提交更改，提交信息包含更新的版本号
